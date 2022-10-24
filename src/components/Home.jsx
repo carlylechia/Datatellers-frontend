@@ -1,9 +1,16 @@
-import React from 'react'
+import React from 'react';
+import { useGetSchedulesQuery } from '../redux/api-functions';
 
 const Home = () => {
-  return (
-    <div>Home</div>
-  )
-}
+  // eslint-disable-next-line no-unused-vars
+  const { data, error, isLoading } = useGetSchedulesQuery();
 
-export default Home
+  console.log(data);
+  return (
+    <div>
+      {data}
+    </div>
+  );
+};
+
+export default Home;

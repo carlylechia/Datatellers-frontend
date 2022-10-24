@@ -1,15 +1,14 @@
 import { configureStore } from '@reduxjs/toolkit';
 import { setupListeners } from '@reduxjs/toolkit/query';
 import { combineReducers } from 'redux';
-// import { categoriesApi } from './api-functions/categories';
+import { schedulesApi } from './api-functions';
 
 const rootReducer = combineReducers({
-  // [categoriesApi.reducerPath]: categoriesApi.reducer,
+  [schedulesApi.reducerPath]: schedulesApi.reducer,
 });
 const store = configureStore({
   reducer: rootReducer,
-  // eslint-disable-next-line no-undef
-  middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(categoriesApi.middleware),
+  middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(schedulesApi.middleware),
 });
 
 setupListeners(store.dispatch);
